@@ -827,28 +827,226 @@ hr.soft-rule {
   }
 }
 
+.character-reading-content {
+  max-width: 1020px;
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.character-board {
+  position: relative;
+  isolation: isolate;
+  padding: clamp(14px, 3vw, 24px);
+  border-radius: 22px;
+  border: 1px solid rgba(190, 176, 150, 0.2);
+  background:
+    radial-gradient(circle at 14% 12%, rgba(214, 203, 181, 0.14), transparent 36%),
+    radial-gradient(circle at 86% 16%, rgba(186, 177, 152, 0.12), transparent 34%),
+    linear-gradient(180deg, rgba(30, 32, 34, 0.94), rgba(18, 20, 22, 0.96));
+  box-shadow: 0 24px 50px rgba(0, 0, 0, 0.32);
+}
+
+.character-board::before,
+.character-board::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  border-radius: inherit;
+}
+
+.character-board::before {
+  z-index: 0;
+  background:
+    repeating-linear-gradient(
+      180deg,
+      rgba(246, 238, 224, 0.024) 0,
+      rgba(246, 238, 224, 0.024) 1px,
+      transparent 1px,
+      transparent 5px
+    ),
+    repeating-linear-gradient(
+      90deg,
+      rgba(246, 238, 224, 0.02) 0,
+      rgba(246, 238, 224, 0.02) 1px,
+      transparent 1px,
+      transparent 96px
+    );
+  opacity: 0.52;
+}
+
+.character-board::after {
+  z-index: 1;
+  background:
+    radial-gradient(circle at 0% 100%, rgba(0, 0, 0, 0.3), transparent 26%),
+    radial-gradient(circle at 100% 0%, rgba(0, 0, 0, 0.24), transparent 24%);
+}
+
+.thread-map {
+  display: none;
+  position: absolute;
+  inset: 18px;
+  width: calc(100% - 36px);
+  height: calc(100% - 36px);
+  z-index: 2;
+  pointer-events: none;
+}
+
+.thread-map path {
+  fill: none;
+  stroke: rgba(214, 222, 232, 0.42);
+  stroke-width: 1.35;
+  stroke-linecap: round;
+}
+
+.thread-map path.thread-ghost {
+  stroke: rgba(214, 222, 232, 0.24);
+  stroke-dasharray: 5 10;
+}
+
+.thread-points circle {
+  fill: rgba(236, 239, 242, 0.7);
+  stroke: rgba(212, 174, 124, 0.44);
+  stroke-width: 1.6;
+}
+
 .character-grid {
+  position: relative;
+  z-index: 3;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: 14px;
+  gap: 16px;
 }
 
 .character-card {
+  --card-accent: rgba(174, 184, 198, 0.5);
+  --card-accent-soft: rgba(174, 184, 198, 0.22);
+  --card-bg-top: rgba(34, 37, 41, 0.9);
+  --card-bg-bottom: rgba(20, 22, 26, 0.94);
+  --portrait-core: rgba(160, 172, 188, 0.34);
+  --card-tilt: -0.8deg;
+  --card-float: 0px;
   position: relative;
   padding: 18px 18px 16px;
   border-radius: 16px;
-  border: 1px solid rgba(170, 178, 190, 0.18);
-  background: linear-gradient(180deg, rgba(26, 28, 30, 0.82), rgba(18, 20, 22, 0.9));
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(214, 202, 177, 0.18);
+  background:
+    linear-gradient(160deg, rgba(255, 255, 255, 0.03), transparent 36%),
+    linear-gradient(180deg, var(--card-bg-top), var(--card-bg-bottom));
+  box-shadow:
+    0 14px 32px rgba(0, 0, 0, 0.28),
+    inset 0 1px 0 rgba(255, 255, 255, 0.04);
+  transform: translateY(var(--card-float)) rotate(var(--card-tilt));
+  transition: transform 180ms ease, border-color 180ms ease, box-shadow 180ms ease;
+}
+
+.character-card:hover {
+  transform: translateY(calc(var(--card-float) - 4px)) rotate(var(--card-tilt));
+  border-color: var(--card-accent);
+  box-shadow:
+    0 20px 38px rgba(0, 0, 0, 0.34),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05);
 }
 
 .character-card::before {
   content: "";
   display: block;
-  width: 64px;
+  width: 72px;
   height: 1px;
-  margin-bottom: 14px;
-  background: linear-gradient(90deg, rgba(170, 178, 190, 0.34), transparent);
+  margin-bottom: 12px;
+  background: linear-gradient(90deg, var(--card-accent), transparent);
+}
+
+.character-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  box-shadow: inset 0 0 0 1px var(--card-accent-soft);
+  opacity: 0.72;
+}
+
+.card-pin {
+  position: absolute;
+  top: -10px;
+  left: 50%;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  transform: translateX(-50%);
+  background: radial-gradient(circle at 34% 28%, #fbf2e6, #a88e67 66%, #6f573a 100%);
+  border: 1px solid rgba(40, 28, 14, 0.48);
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.44);
+  z-index: 4;
+}
+
+.character-portrait {
+  position: relative;
+  margin-top: 4px;
+  margin-bottom: 12px;
+  aspect-ratio: 4 / 5;
+  border-radius: 11px;
+  border: 1px solid var(--card-accent-soft);
+  overflow: hidden;
+  background:
+    radial-gradient(70% 56% at 50% 34%, var(--portrait-core), transparent 78%),
+    linear-gradient(180deg, rgba(14, 16, 19, 0.34), rgba(24, 27, 30, 0.94));
+}
+
+.character-portrait::before {
+  content: "";
+  position: absolute;
+  inset: 15% 22% 12%;
+  background:
+    radial-gradient(34% 30% at 50% 20%, rgba(248, 250, 253, 0.36), transparent 90%),
+    radial-gradient(66% 58% at 50% 84%, rgba(246, 249, 252, 0.16), transparent 78%);
+  opacity: 0.78;
+}
+
+.character-portrait::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    repeating-linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0.08) 0,
+      rgba(255, 255, 255, 0.08) 1px,
+      transparent 1px,
+      transparent 4px
+    ),
+    linear-gradient(
+      90deg,
+      rgba(255, 255, 255, 0.14) 0,
+      transparent 24%,
+      transparent 78%,
+      rgba(255, 255, 255, 0.12) 100%
+    );
+  opacity: 0.24;
+}
+
+.portrait-id,
+.portrait-label {
+  position: absolute;
+  z-index: 2;
+  font-family: var(--font-ui);
+  color: rgba(235, 231, 223, 0.9);
+}
+
+.portrait-id {
+  top: 8px;
+  left: 8px;
+  font-size: 0.74rem;
+  letter-spacing: 0.1em;
+}
+
+.portrait-label {
+  right: 8px;
+  bottom: 8px;
+  font-size: 0.7rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
 }
 
 .character-head {
@@ -868,10 +1066,10 @@ hr.soft-rule {
 
 .character-tag {
   font-family: var(--font-ui);
-  font-size: 0.76rem;
-  letter-spacing: 0.14em;
+  font-size: 0.75rem;
+  letter-spacing: 0.13em;
   text-transform: uppercase;
-  color: rgba(170, 178, 190, 0.72);
+  color: var(--card-accent);
   white-space: nowrap;
 }
 
@@ -888,9 +1086,9 @@ hr.soft-rule {
   min-height: 28px;
   padding: 0 10px;
   border-radius: 999px;
-  border: 1px solid rgba(170, 178, 190, 0.16);
+  border: 1px solid var(--card-accent-soft);
   background: rgba(255, 255, 255, 0.03);
-  color: var(--text-muted);
+  color: rgba(210, 206, 198, 0.9);
   font-family: var(--font-ui);
   font-size: 0.82rem;
 }
@@ -902,16 +1100,16 @@ hr.soft-rule {
 .character-section h3 {
   margin: 0;
   font-family: var(--font-ui);
-  font-size: 0.78rem;
+  font-size: 0.76rem;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: rgba(170, 178, 190, 0.62);
+  color: var(--card-accent);
 }
 
 .character-section p {
   margin: 8px 0 0;
   color: var(--text-soft);
-  line-height: 1.78;
+  line-height: 1.76;
 }
 
 .character-section ul {
@@ -924,25 +1122,166 @@ hr.soft-rule {
   margin-top: 0.4em;
 }
 
+.card-guyu {
+  --card-accent: rgba(143, 177, 214, 0.72);
+  --card-accent-soft: rgba(143, 177, 214, 0.3);
+  --card-bg-top: rgba(26, 35, 45, 0.95);
+  --card-bg-bottom: rgba(18, 25, 33, 0.96);
+  --portrait-core: rgba(136, 171, 206, 0.46);
+  --card-tilt: -1.6deg;
+}
+
+.card-zhou {
+  --card-accent: rgba(198, 166, 114, 0.66);
+  --card-accent-soft: rgba(198, 166, 114, 0.28);
+  --card-bg-top: rgba(46, 38, 28, 0.94);
+  --card-bg-bottom: rgba(30, 24, 18, 0.95);
+  --portrait-core: rgba(194, 162, 106, 0.42);
+  --card-tilt: -2.3deg;
+}
+
+.card-lin {
+  --card-accent: rgba(138, 168, 189, 0.66);
+  --card-accent-soft: rgba(138, 168, 189, 0.28);
+  --card-bg-top: rgba(31, 39, 46, 0.95);
+  --card-bg-bottom: rgba(20, 27, 34, 0.95);
+  --portrait-core: rgba(136, 166, 188, 0.4);
+  --card-tilt: 1deg;
+}
+
+.card-ma {
+  --card-accent: rgba(152, 170, 126, 0.64);
+  --card-accent-soft: rgba(152, 170, 126, 0.26);
+  --card-bg-top: rgba(36, 42, 33, 0.95);
+  --card-bg-bottom: rgba(24, 28, 22, 0.95);
+  --portrait-core: rgba(154, 176, 132, 0.36);
+  --card-tilt: 1.9deg;
+}
+
+.card-shen {
+  --card-accent: rgba(127, 184, 186, 0.68);
+  --card-accent-soft: rgba(127, 184, 186, 0.28);
+  --card-bg-top: rgba(28, 39, 40, 0.95);
+  --card-bg-bottom: rgba(20, 28, 30, 0.96);
+  --portrait-core: rgba(132, 188, 190, 0.42);
+  --card-tilt: -0.8deg;
+}
+
+.card-tang {
+  --card-accent: rgba(197, 146, 94, 0.68);
+  --card-accent-soft: rgba(197, 146, 94, 0.28);
+  --card-bg-top: rgba(44, 33, 24, 0.95);
+  --card-bg-bottom: rgba(28, 22, 17, 0.96);
+  --portrait-core: rgba(196, 142, 82, 0.42);
+  --card-tilt: 2.1deg;
+}
+
+.card-archive {
+  --card-accent: rgba(164, 164, 174, 0.62);
+  --card-accent-soft: rgba(164, 164, 174, 0.24);
+  --card-bg-top: rgba(28, 30, 34, 0.95);
+  --card-bg-bottom: rgba(16, 18, 22, 0.97);
+  --portrait-core: rgba(156, 160, 174, 0.36);
+  --card-tilt: -1.1deg;
+}
+
+.card-guyu .character-portrait::after {
+  opacity: 0.3;
+}
+
+.card-tang .character-portrait {
+  filter: contrast(1.08) saturate(1.08);
+}
+
+.card-archive .character-portrait::before {
+  opacity: 0.62;
+}
+
 @media (max-width: 780px) {
+  .character-board {
+    padding: 14px 12px;
+  }
+
   .character-grid {
     grid-template-columns: 1fr;
+  }
+
+  .character-card {
+    --card-tilt: 0deg;
+    --card-float: 0px;
+  }
+
+  .card-pin {
+    top: -8px;
   }
 }
 
 @media (min-width: 1024px) {
-  .character-grid {
-    gap: 16px;
+  .character-reading-content {
+    max-width: 1120px;
+    padding-top: 30px;
   }
 
-  .character-card {
-    padding: 20px 20px 18px;
+  .character-board {
+    padding: 30px 26px 34px;
+    min-height: 760px;
+  }
+
+  .thread-map {
+    display: block;
+  }
+
+  .character-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-template-areas:
+      "zhou guyu lin"
+      "ma shen tang"
+      ". archive .";
+    gap: 24px 28px;
+    align-items: start;
+  }
+
+  .card-guyu {
+    grid-area: guyu;
+    --card-float: -12px;
+  }
+
+  .card-zhou {
+    grid-area: zhou;
+    --card-float: 10px;
+  }
+
+  .card-lin {
+    grid-area: lin;
+    --card-float: 8px;
+  }
+
+  .card-ma {
+    grid-area: ma;
+    --card-float: 4px;
+  }
+
+  .card-shen {
+    grid-area: shen;
+    --card-float: -2px;
+  }
+
+  .card-tang {
+    grid-area: tang;
+    --card-float: 6px;
+  }
+
+  .card-archive {
+    grid-area: archive;
+    --card-float: 6px;
   }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .character-card {
-    scroll-behavior: auto;
+  .character-card,
+  .character-card:hover {
+    transition: none;
+    transform: none;
   }
 }
 

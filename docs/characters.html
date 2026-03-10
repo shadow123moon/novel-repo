@@ -24,9 +24,56 @@
       </header>
     </article>
 
-    <article class="reading-content reading-content-refined">
-      <div class="character-grid">
-        <section class="character-card" aria-label="顾屿 人物卡">
+    <article class="reading-content reading-content-refined character-reading-content">
+      <div class="character-board" aria-label="角色关系板">
+        <svg class="thread-map" viewBox="0 0 1200 780" role="img" aria-label="人物关系蛛丝图">
+          <defs>
+            <filter id="webGlow" x="-20%" y="-20%" width="140%" height="140%">
+              <feGaussianBlur stdDeviation="1.4" result="blur"></feGaussianBlur>
+              <feMerge>
+                <feMergeNode in="blur"></feMergeNode>
+                <feMergeNode in="SourceGraphic"></feMergeNode>
+              </feMerge>
+            </filter>
+          </defs>
+          <g filter="url(#webGlow)">
+            <path d="M600 120 C520 150 410 154 264 156"></path>
+            <path d="M600 120 C694 146 790 146 936 158"></path>
+            <path d="M600 120 C542 236 470 290 264 390"></path>
+            <path d="M600 120 C690 246 812 304 936 390"></path>
+            <path d="M600 120 C600 208 600 282 600 392"></path>
+            <path d="M600 392 C520 472 560 552 600 640"></path>
+            <path d="M264 156 C244 250 246 332 264 390"></path>
+            <path d="M936 158 C954 250 954 330 936 390"></path>
+            <path d="M264 390 C396 346 490 360 600 392"></path>
+            <path d="M600 392 C730 354 820 352 936 390"></path>
+            <path d="M264 390 C406 502 488 566 600 640"></path>
+            <path d="M936 390 C794 506 706 568 600 640"></path>
+            <path d="M264 156 C432 182 540 282 600 392"></path>
+            <path d="M936 158 C776 182 664 286 600 392"></path>
+            <path d="M264 156 C414 128 528 112 600 120" class="thread-ghost"></path>
+            <path d="M936 158 C770 130 680 118 600 120" class="thread-ghost"></path>
+            <path d="M264 390 C398 360 526 338 600 392" class="thread-ghost"></path>
+            <path d="M936 390 C794 350 684 350 600 392" class="thread-ghost"></path>
+          </g>
+          <g class="thread-points">
+            <circle cx="600" cy="120" r="5"></circle>
+            <circle cx="264" cy="156" r="4"></circle>
+            <circle cx="936" cy="158" r="4"></circle>
+            <circle cx="264" cy="390" r="4"></circle>
+            <circle cx="600" cy="392" r="5"></circle>
+            <circle cx="936" cy="390" r="4"></circle>
+            <circle cx="600" cy="640" r="5"></circle>
+          </g>
+        </svg>
+
+        <div class="character-grid">
+          <section class="character-card card-guyu" aria-label="顾屿 人物卡">
+            <span class="card-pin" aria-hidden="true"></span>
+            <div class="character-portrait" aria-hidden="true">
+              <span class="portrait-id">S-01</span>
+              <span class="portrait-label">夜班记者</span>
+            </div>
           <div class="character-head">
             <h2 class="character-name">顾屿</h2>
             <span class="character-tag">主角</span>
@@ -53,7 +100,12 @@
           </div>
         </section>
 
-        <section class="character-card" aria-label="周姨 人物卡">
+          <section class="character-card card-zhou" aria-label="周姨 人物卡">
+            <span class="card-pin" aria-hidden="true"></span>
+            <div class="character-portrait" aria-hidden="true">
+              <span class="portrait-id">S-02</span>
+              <span class="portrait-label">旧楼见证</span>
+            </div>
           <div class="character-head">
             <h2 class="character-name">周姨</h2>
             <span class="character-tag">关键见证</span>
@@ -81,7 +133,12 @@
           </div>
         </section>
 
-        <section class="character-card" aria-label="林见秋 人物卡">
+          <section class="character-card card-lin" aria-label="林见秋 人物卡">
+            <span class="card-pin" aria-hidden="true"></span>
+            <div class="character-portrait" aria-hidden="true">
+              <span class="portrait-id">S-03</span>
+              <span class="portrait-label">制度窗口</span>
+            </div>
           <div class="character-head">
             <h2 class="character-name">林见秋</h2>
             <span class="character-tag">系统窗口</span>
@@ -104,7 +161,12 @@
           </div>
         </section>
 
-        <section class="character-card" aria-label="马会 人物卡">
+          <section class="character-card card-ma" aria-label="马会 人物卡">
+            <span class="card-pin" aria-hidden="true"></span>
+            <div class="character-portrait" aria-hidden="true">
+              <span class="portrait-id">S-04</span>
+              <span class="portrait-label">派出所线</span>
+            </div>
           <div class="character-head">
             <h2 class="character-name">马会</h2>
             <span class="character-tag">基层信息</span>
@@ -124,7 +186,12 @@
           </div>
         </section>
 
-        <section class="character-card" aria-label="沈宁 人物卡">
+          <section class="character-card card-shen" aria-label="沈宁 人物卡">
+            <span class="card-pin" aria-hidden="true"></span>
+            <div class="character-portrait" aria-hidden="true">
+              <span class="portrait-id">S-05</span>
+              <span class="portrait-label">急诊记录</span>
+            </div>
           <div class="character-head">
             <h2 class="character-name">沈宁</h2>
             <span class="character-tag">医院线</span>
@@ -144,7 +211,12 @@
           </div>
         </section>
 
-        <section class="character-card" aria-label="唐骁 人物卡">
+          <section class="character-card card-tang" aria-label="唐骁 人物卡">
+            <span class="card-pin" aria-hidden="true"></span>
+            <div class="character-portrait" aria-hidden="true">
+              <span class="portrait-id">S-06</span>
+              <span class="portrait-label">缺失影像</span>
+            </div>
           <div class="character-head">
             <h2 class="character-name">唐骁</h2>
             <span class="character-tag">卷一引爆</span>
@@ -164,7 +236,12 @@
           </div>
         </section>
 
-        <section class="character-card" aria-label="档案室里的男人 人物卡">
+          <section class="character-card card-archive" aria-label="档案室里的男人 人物卡">
+            <span class="card-pin" aria-hidden="true"></span>
+            <div class="character-portrait" aria-hidden="true">
+              <span class="portrait-id">S-07</span>
+              <span class="portrait-label">信息篡改</span>
+            </div>
           <div class="character-head">
             <h2 class="character-name">档案室里的男人</h2>
             <span class="character-tag">潜在对立</span>
@@ -183,6 +260,7 @@
             <p>避免脸谱化，把重点写成“如何操纵信息”，而不是“单纯作恶”。</p>
           </div>
         </section>
+        </div>
       </div>
     </article>
 
