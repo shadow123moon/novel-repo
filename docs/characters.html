@@ -18,15 +18,15 @@
       <header>
         <p class="chapter-kicker">人物档案</p>
         <h1 class="chapter-title-main">《临川无证之夜》</h1>
-        <p class="chapter-summary">这里是公开人物关系板：卡片正面只保留人物特征，点击翻面后再看“已提供线索”与“隐藏层”。</p>
+        <p class="chapter-summary">这里不是完整答案，只展示目前已经浮到水面的名字、特征与关系痕迹。</p>
         <hr class="soft-rule">
-        <p class="chapter-intro">桌面端按“办案板”处理：卡片错落摆放、蛛丝连接、信息前简后详；移动端则收束成可读优先的堆叠布局。</p>
+        <p class="chapter-intro">整体更接近一面被夜色浸过的调查档案墙，而不是标准办案界面：信息彼此牵扯，但语气仍然属于这部城市异质悬疑小说。</p>
       </header>
     </article>
 
     <article class="reading-content reading-content-refined character-reading-content">
       <div class="character-board" aria-label="角色关系板">
-        <p class="board-note">点击人物卡翻面，查看已提供线索与隐藏层。</p>
+        <p class="board-note">点击卡片翻面；选中后只保留相关人物与线索牵引。</p>
         <svg class="thread-map" viewBox="0 0 1400 1500" role="img" aria-label="人物关系蛛丝图">
           <defs>
             <filter id="webGlow" x="-20%" y="-20%" width="140%" height="140%">
@@ -38,26 +38,26 @@
             </filter>
           </defs>
           <g filter="url(#webGlow)">
-            <path d="M705 76 C612 104 454 122 252 120"></path>
-            <path d="M705 76 C852 102 1004 114 1184 126"></path>
-            <path d="M705 76 C624 262 470 396 176 656"></path>
-            <path d="M705 76 C830 266 960 398 1182 640"></path>
-            <path d="M705 76 C694 280 664 506 650 764"></path>
-            <path d="M252 120 C222 324 182 462 176 656"></path>
-            <path d="M1184 126 C1206 322 1212 468 1182 640"></path>
-            <path d="M176 656 C332 602 476 614 650 764"></path>
-            <path d="M1182 640 C1024 606 848 622 650 764"></path>
-            <path d="M176 656 C392 844 530 986 770 1160"></path>
-            <path d="M1182 640 C1000 862 902 996 770 1160"></path>
-            <path d="M650 764 C704 898 730 1032 770 1160"></path>
-            <path d="M252 120 C470 186 606 454 650 764"></path>
-            <path d="M1184 126 C950 196 792 456 650 764"></path>
-            <path d="M252 120 C496 108 770 102 1184 126" class="thread-ghost"></path>
-            <path d="M176 656 C362 566 600 532 1182 640" class="thread-ghost"></path>
-            <path d="M252 120 C232 414 332 760 770 1160" class="thread-ghost"></path>
-            <path d="M1184 126 C1164 432 1062 782 770 1160" class="thread-ghost"></path>
-            <path d="M430 370 C542 330 646 314 758 338" class="thread-ghost"></path>
-            <path d="M872 378 C954 438 992 506 1038 612" class="thread-ghost"></path>
+            <path class="thread link-guyu link-zhou" d="M705 76 C612 104 454 122 252 120"></path>
+            <path class="thread link-guyu link-lin" d="M705 76 C852 102 1004 114 1184 126"></path>
+            <path class="thread link-guyu link-ma" d="M705 76 C624 262 470 396 176 656"></path>
+            <path class="thread link-guyu link-tang" d="M705 76 C830 266 960 398 1182 640"></path>
+            <path class="thread link-guyu link-shen" d="M705 76 C694 280 664 506 650 764"></path>
+            <path class="thread link-zhou link-ma" d="M252 120 C222 324 182 462 176 656"></path>
+            <path class="thread link-lin link-tang" d="M1184 126 C1206 322 1212 468 1182 640"></path>
+            <path class="thread link-ma link-shen" d="M176 656 C332 602 476 614 650 764"></path>
+            <path class="thread link-tang link-shen" d="M1182 640 C1024 606 848 622 650 764"></path>
+            <path class="thread link-ma link-archive" d="M176 656 C392 844 530 986 770 1160"></path>
+            <path class="thread link-tang link-archive" d="M1182 640 C1000 862 902 996 770 1160"></path>
+            <path class="thread link-shen link-archive" d="M650 764 C704 898 730 1032 770 1160"></path>
+            <path class="thread link-zhou link-shen" d="M252 120 C470 186 606 454 650 764"></path>
+            <path class="thread link-lin link-shen" d="M1184 126 C950 196 792 456 650 764"></path>
+            <path class="thread thread-ghost link-zhou link-lin" d="M252 120 C496 108 770 102 1184 126"></path>
+            <path class="thread thread-ghost link-ma link-tang" d="M176 656 C362 566 600 532 1182 640"></path>
+            <path class="thread thread-ghost link-zhou link-archive" d="M252 120 C232 414 332 760 770 1160"></path>
+            <path class="thread thread-ghost link-lin link-archive" d="M1184 126 C1164 432 1062 782 770 1160"></path>
+            <path class="thread thread-ghost link-guyu link-zhou" d="M430 370 C542 330 646 314 758 338"></path>
+            <path class="thread thread-ghost link-lin link-tang" d="M872 378 C954 438 992 506 1038 612"></path>
           </g>
           <g class="thread-points">
             <circle cx="705" cy="76" r="6"></circle>
@@ -71,7 +71,7 @@
         </svg>
 
         <div class="character-grid">
-          <section class="character-card card-guyu" aria-label="顾屿 人物卡">
+          <section class="character-card card-guyu" data-card="guyu" data-links="zhou lin ma shen tang archive" aria-label="顾屿 人物卡">
             <span class="card-pin" aria-hidden="true"></span>
             <button class="character-card-button" type="button" aria-pressed="false" aria-label="翻转顾屿人物卡">
               <span class="card-inner">
@@ -101,12 +101,12 @@
                 </span>
                 <span class="character-face character-face-back">
                   <span class="back-face-head">
-                    <span class="back-face-kicker">S-01 已提供线索</span>
+                    <span class="back-face-kicker">S-01 已浮出线索</span>
                     <span class="flip-hint flip-hint-back">再次点击翻回正面</span>
                   </span>
                   <span class="character-back-scroll">
                     <span class="character-section">
-                      <span class="character-section-title">已提供线索</span>
+                      <span class="character-section-title">已浮出线索</span>
                       <span class="character-list">
                         <span>能在带回响的场所或物件上读到残留片段。</span>
                         <span>能力不稳定，伴随头痛、耳鸣和时间感断裂。</span>
@@ -114,8 +114,20 @@
                       </span>
                     </span>
                     <span class="character-section">
-                      <span class="character-section-title">隐藏层</span>
-                      <span class="character-copy">他越接近真相，越必须怀疑自己第一眼看到的东西；顾屿不是在找答案，而是在确认自己还没有被答案反写。</span>
+                      <span class="character-section-title">未公开层</span>
+                      <span class="character-list character-list-locked">
+                        <span>锁定：回响能力的真实代价。</span>
+                        <span>??? 唐骁失联夜与他之间是否另有私人交集。</span>
+                      </span>
+                    </span>
+                    <span class="character-section">
+                      <span class="character-section-title">关联记录</span>
+                      <span class="relationship-tags">
+                        <span>周姨 / 旧楼出入</span>
+                        <span>林见秋 / 缺页档案</span>
+                        <span>唐骁 / 缺失影像</span>
+                        <span>档案室男人 / 信息篡改</span>
+                      </span>
                     </span>
                   </span>
                 </span>
@@ -123,7 +135,7 @@
             </button>
           </section>
 
-          <section class="character-card card-zhou" aria-label="周姨 人物卡">
+          <section class="character-card card-zhou" data-card="zhou" data-links="guyu ma tang" aria-label="周姨 人物卡">
             <span class="card-pin" aria-hidden="true"></span>
             <button class="character-card-button" type="button" aria-pressed="false" aria-label="翻转周姨人物卡">
               <span class="card-inner">
@@ -153,12 +165,12 @@
                 </span>
                 <span class="character-face character-face-back">
                   <span class="back-face-head">
-                    <span class="back-face-kicker">S-02 已提供线索</span>
+                    <span class="back-face-kicker">S-02 已浮出线索</span>
                     <span class="flip-hint flip-hint-back">再次点击翻回正面</span>
                   </span>
                   <span class="character-back-scroll">
                     <span class="character-section">
-                      <span class="character-section-title">已提供线索</span>
+                      <span class="character-section-title">已浮出线索</span>
                       <span class="character-list">
                         <span>失踪者背长形黑包，鞋底有泥，进门时回头看。</span>
                         <span>七楼出口绿灯夜里会自亮或闪烁，楼上有闷响。</span>
@@ -166,8 +178,19 @@
                       </span>
                     </span>
                     <span class="character-section">
-                      <span class="character-section-title">隐藏层</span>
-                      <span class="character-copy">她的可信来自能核对的现实细节，但她也在回避某些更危险的词，不是不知道，而是不敢把话说全。</span>
+                      <span class="character-section-title">未公开层</span>
+                      <span class="character-list character-list-locked">
+                        <span>锁定：她始终没说完整的那句证词。</span>
+                        <span>??? 她为何只愿在夜里回忆七楼那晚。</span>
+                      </span>
+                    </span>
+                    <span class="character-section">
+                      <span class="character-section-title">关联记录</span>
+                      <span class="relationship-tags">
+                        <span>顾屿 / 第一手见证</span>
+                        <span>马会 / 街坊口风</span>
+                        <span>唐骁 / 夜拍旧楼</span>
+                      </span>
                     </span>
                   </span>
                 </span>
@@ -175,7 +198,7 @@
             </button>
           </section>
 
-          <section class="character-card card-lin" aria-label="林见秋 人物卡">
+          <section class="character-card card-lin" data-card="lin" data-links="guyu tang shen archive" aria-label="林见秋 人物卡">
             <span class="card-pin" aria-hidden="true"></span>
             <button class="character-card-button" type="button" aria-pressed="false" aria-label="翻转林见秋人物卡">
               <span class="card-inner">
@@ -205,12 +228,12 @@
                 </span>
                 <span class="character-face character-face-back">
                   <span class="back-face-head">
-                    <span class="back-face-kicker">S-03 已提供线索</span>
+                    <span class="back-face-kicker">S-03 已浮出线索</span>
                     <span class="flip-hint flip-hint-back">再次点击翻回正面</span>
                   </span>
                   <span class="character-back-scroll">
                     <span class="character-section">
-                      <span class="character-section-title">已提供线索</span>
+                      <span class="character-section-title">已浮出线索</span>
                       <span class="character-list">
                         <span>她知道异常案件存在，也知道有些卷宗只能写一半。</span>
                         <span>对监控空白、旧案缺页、流程内失真高度敏感。</span>
@@ -218,8 +241,20 @@
                       </span>
                     </span>
                     <span class="character-section">
-                      <span class="character-section-title">隐藏层</span>
-                      <span class="character-copy">她靠近顾屿既因为他有用，也因为她需要确认这个人会不会成为新的风险源。</span>
+                      <span class="character-section-title">未公开层</span>
+                      <span class="character-list character-list-locked">
+                        <span>锁定：她掌握的缺页编号和去向。</span>
+                        <span>??? 她为什么持续盯着顾屿。</span>
+                      </span>
+                    </span>
+                    <span class="character-section">
+                      <span class="character-section-title">关联记录</span>
+                      <span class="relationship-tags">
+                        <span>顾屿 / 调查边界</span>
+                        <span>唐骁 / 缺失卷宗</span>
+                        <span>沈宁 / 医院记录</span>
+                        <span>档案室男人 / 缺页链条</span>
+                      </span>
                     </span>
                   </span>
                 </span>
@@ -227,7 +262,7 @@
             </button>
           </section>
 
-          <section class="character-card card-ma" aria-label="马会 人物卡">
+          <section class="character-card card-ma" data-card="ma" data-links="guyu zhou shen archive" aria-label="马会 人物卡">
             <span class="card-pin" aria-hidden="true"></span>
             <button class="character-card-button" type="button" aria-pressed="false" aria-label="翻转马会人物卡">
               <span class="card-inner">
@@ -257,12 +292,12 @@
                 </span>
                 <span class="character-face character-face-back">
                   <span class="back-face-head">
-                    <span class="back-face-kicker">S-04 已提供线索</span>
+                    <span class="back-face-kicker">S-04 已浮出线索</span>
                     <span class="flip-hint flip-hint-back">再次点击翻回正面</span>
                   </span>
                   <span class="character-back-scroll">
                     <span class="character-section">
-                      <span class="character-section-title">已提供线索</span>
+                      <span class="character-section-title">已浮出线索</span>
                       <span class="character-list">
                         <span>他能给出程序内结论，也知道程序外还有另一半信息。</span>
                         <span>确认旧楼案不止一台监控缺页，至少三路同步异常。</span>
@@ -270,8 +305,20 @@
                       </span>
                     </span>
                     <span class="character-section">
-                      <span class="character-section-title">隐藏层</span>
-                      <span class="character-copy">年轻时碰过解释不通的案子，从此对“不能写”的细节格外留心；他和清理线的关系更像外围接口，而不是核心成员。</span>
+                      <span class="character-section-title">未公开层</span>
+                      <span class="character-list character-list-locked">
+                        <span>锁定：旧楼案里被压下的基层报告。</span>
+                        <span>??? 他究竟替谁绕开过流程。</span>
+                      </span>
+                    </span>
+                    <span class="character-section">
+                      <span class="character-section-title">关联记录</span>
+                      <span class="relationship-tags">
+                        <span>顾屿 / 口头提醒</span>
+                        <span>周姨 / 街坊消息</span>
+                        <span>沈宁 / 同步异常</span>
+                        <span>档案室男人 / 流程外接口</span>
+                      </span>
                     </span>
                   </span>
                 </span>
@@ -279,7 +326,7 @@
             </button>
           </section>
 
-          <section class="character-card card-shen" aria-label="沈宁 人物卡">
+          <section class="character-card card-shen" data-card="shen" data-links="guyu lin ma tang archive" aria-label="沈宁 人物卡">
             <span class="card-pin" aria-hidden="true"></span>
             <button class="character-card-button" type="button" aria-pressed="false" aria-label="翻转沈宁人物卡">
               <span class="card-inner">
@@ -309,12 +356,12 @@
                 </span>
                 <span class="character-face character-face-back">
                   <span class="back-face-head">
-                    <span class="back-face-kicker">S-05 已提供线索</span>
+                    <span class="back-face-kicker">S-05 已浮出线索</span>
                     <span class="flip-hint flip-hint-back">再次点击翻回正面</span>
                   </span>
                   <span class="character-back-scroll">
                     <span class="character-section">
-                      <span class="character-section-title">已提供线索</span>
+                      <span class="character-section-title">已浮出线索</span>
                       <span class="character-list">
                         <span>她负责把异常接触后的表现重新落回身体和临床语言。</span>
                         <span>医院线索会围绕“共性症状”展开，而不是神秘学解释。</span>
@@ -322,8 +369,21 @@
                       </span>
                     </span>
                     <span class="character-section">
-                      <span class="character-section-title">隐藏层</span>
-                      <span class="character-copy">沈宁越理性，她的迟疑就越有分量；她不是为神秘背书，而是被证据逼着承认身体先知道了某些事。</span>
+                      <span class="character-section-title">未公开层</span>
+                      <span class="character-list character-list-locked">
+                        <span>锁定：顾屿症状是否和旧案样本重合。</span>
+                        <span>??? 她在急诊记录里删掉过什么。</span>
+                      </span>
+                    </span>
+                    <span class="character-section">
+                      <span class="character-section-title">关联记录</span>
+                      <span class="relationship-tags">
+                        <span>顾屿 / 身体阈值</span>
+                        <span>林见秋 / 医院记录</span>
+                        <span>马会 / 异常接触</span>
+                        <span>唐骁 / 影像前后症状</span>
+                        <span>档案室男人 / 样本缺失</span>
+                      </span>
                     </span>
                   </span>
                 </span>
@@ -331,7 +391,7 @@
             </button>
           </section>
 
-          <section class="character-card card-tang" aria-label="唐骁 人物卡">
+          <section class="character-card card-tang" data-card="tang" data-links="guyu zhou lin shen archive" aria-label="唐骁 人物卡">
             <span class="card-pin" aria-hidden="true"></span>
             <button class="character-card-button" type="button" aria-pressed="false" aria-label="翻转唐骁人物卡">
               <span class="card-inner">
@@ -361,12 +421,12 @@
                 </span>
                 <span class="character-face character-face-back">
                   <span class="back-face-head">
-                    <span class="back-face-kicker">S-06 已提供线索</span>
+                    <span class="back-face-kicker">S-06 已浮出线索</span>
                     <span class="flip-hint flip-hint-back">再次点击翻回正面</span>
                   </span>
                   <span class="character-back-scroll">
                     <span class="character-section">
-                      <span class="character-section-title">已提供线索</span>
+                      <span class="character-section-title">已浮出线索</span>
                       <span class="character-list">
                         <span>与旧楼、深夜拍摄、缺失的一分钟视频直接相关。</span>
                         <span>最后留下的不是结论，而是一串无法立即解释的残缺素材。</span>
@@ -374,8 +434,21 @@
                       </span>
                     </span>
                     <span class="character-section">
-                      <span class="character-section-title">隐藏层</span>
-                      <span class="character-copy">他看似是受害者，也可能曾主动接近过危险信息；他记录世界的方式，反过来变成了别人操纵他的入口。</span>
+                      <span class="character-section-title">未公开层</span>
+                      <span class="character-list character-list-locked">
+                        <span>锁定：最后一帧影像真正指向的人。</span>
+                        <span>??? 失联前他主动接触过哪条线。</span>
+                      </span>
+                    </span>
+                    <span class="character-section">
+                      <span class="character-section-title">关联记录</span>
+                      <span class="relationship-tags">
+                        <span>顾屿 / 缺失影像</span>
+                        <span>周姨 / 旧楼目击</span>
+                        <span>林见秋 / 卷宗接口</span>
+                        <span>沈宁 / 接触后症状</span>
+                        <span>档案室男人 / 影像去向</span>
+                      </span>
                     </span>
                   </span>
                 </span>
@@ -383,7 +456,7 @@
             </button>
           </section>
 
-          <section class="character-card card-archive" aria-label="档案室里的男人 人物卡">
+          <section class="character-card card-archive" data-card="archive" data-links="guyu lin ma shen tang" aria-label="档案室里的男人 人物卡">
             <span class="card-pin" aria-hidden="true"></span>
             <button class="character-card-button" type="button" aria-pressed="false" aria-label="翻转档案室里的男人人物卡">
               <span class="card-inner">
@@ -413,12 +486,12 @@
                 </span>
                 <span class="character-face character-face-back">
                   <span class="back-face-head">
-                    <span class="back-face-kicker">S-07 已提供线索</span>
+                    <span class="back-face-kicker">S-07 已浮出线索</span>
                     <span class="flip-hint flip-hint-back">再次点击翻回正面</span>
                   </span>
                   <span class="character-back-scroll">
                     <span class="character-section">
-                      <span class="character-section-title">已提供线索</span>
+                      <span class="character-section-title">已浮出线索</span>
                       <span class="character-list">
                         <span>档案、扫描、整理这类岗位就足够改变信息流向。</span>
                         <span>真正的篡改往往不是销毁一切，而是删除、替换、延迟关键资料。</span>
@@ -426,8 +499,21 @@
                       </span>
                     </span>
                     <span class="character-section">
-                      <span class="character-section-title">隐藏层</span>
-                      <span class="character-copy">这一类对立方不该写成脸谱反派，重点是他们如何操纵记录、利用制度，并且尽量不让自己留下正面痕迹。</span>
+                      <span class="character-section-title">未公开层</span>
+                      <span class="character-list character-list-locked">
+                        <span>锁定：真实身份仍未命名。</span>
+                        <span>??? 他改动记录的授权来源。</span>
+                      </span>
+                    </span>
+                    <span class="character-section">
+                      <span class="character-section-title">关联记录</span>
+                      <span class="relationship-tags">
+                        <span>顾屿 / 记录反查</span>
+                        <span>林见秋 / 缺页档案</span>
+                        <span>马会 / 流程外接口</span>
+                        <span>沈宁 / 样本缺失</span>
+                        <span>唐骁 / 影像替换</span>
+                      </span>
                     </span>
                   </span>
                 </span>
@@ -438,7 +524,7 @@
       </div>
     </article>
 
-    <article class="reading-nav reading-nav-refined">
+    <article class="reading-nav reading-nav-refined character-reading-nav">
       <div class="nav-group">
         <a class="nav-link-muted" href="index.html#catalog">返回目录</a>
       </div>
@@ -454,12 +540,50 @@
   </main>
 
   <script>
-    const cards = document.querySelectorAll(".character-card");
+    const board = document.querySelector(".character-board");
+    const cards = Array.from(document.querySelectorAll(".character-card"));
+    const threads = Array.from(document.querySelectorAll(".thread-map .thread"));
 
     function setCardState(card, nextState) {
       const button = card.querySelector(".character-card-button");
       card.classList.toggle("is-flipped", nextState);
       button.setAttribute("aria-pressed", nextState ? "true" : "false");
+    }
+
+    function setBoardFocus(activeCard) {
+      if (!activeCard) {
+        board.classList.remove("is-focused");
+
+        cards.forEach((card) => {
+          card.classList.remove("is-selected", "is-related");
+        });
+
+        threads.forEach((thread) => {
+          thread.classList.remove("is-related");
+        });
+
+        return;
+      }
+
+      const activeId = activeCard.dataset.card;
+      const relatedIds = new Set(
+        (activeCard.dataset.links || "")
+          .split(/\s+/)
+          .filter(Boolean)
+      );
+
+      relatedIds.add(activeId);
+      board.classList.add("is-focused");
+
+      cards.forEach((card) => {
+        const cardId = card.dataset.card;
+        card.classList.toggle("is-selected", card === activeCard);
+        card.classList.toggle("is-related", card !== activeCard && relatedIds.has(cardId));
+      });
+
+      threads.forEach((thread) => {
+        thread.classList.toggle("is-related", thread.classList.contains(`link-${activeId}`));
+      });
     }
 
     cards.forEach((card) => {
@@ -475,6 +599,13 @@
         });
 
         setCardState(card, nextState);
+
+        if (nextState) {
+          setBoardFocus(card);
+          return;
+        }
+
+        setBoardFocus(null);
       });
     });
 
@@ -486,6 +617,8 @@
       cards.forEach((card) => {
         setCardState(card, false);
       });
+
+      setBoardFocus(null);
     });
   </script>
 </body>

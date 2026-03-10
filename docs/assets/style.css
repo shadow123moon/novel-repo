@@ -845,16 +845,18 @@ hr.soft-rule {
 .character-board {
   position: relative;
   isolation: isolate;
-  padding: clamp(18px, 2.8vw, 28px);
-  border-radius: 28px;
-  border: 1px solid rgba(196, 185, 161, 0.2);
+  overflow: hidden;
+  padding: clamp(18px, 2.8vw, 30px);
+  border-radius: 32px;
+  border: 1px solid rgba(196, 185, 161, 0.18);
   background:
-    radial-gradient(circle at 16% 14%, rgba(205, 160, 86, 0.14), transparent 32%),
-    radial-gradient(circle at 84% 18%, rgba(120, 160, 204, 0.12), transparent 34%),
-    linear-gradient(180deg, rgba(31, 34, 37, 0.95), rgba(15, 16, 19, 0.98));
+    radial-gradient(circle at 14% 16%, rgba(178, 128, 72, 0.14), transparent 30%),
+    radial-gradient(circle at 84% 14%, rgba(92, 122, 166, 0.14), transparent 30%),
+    radial-gradient(circle at 54% 58%, rgba(255, 255, 255, 0.025), transparent 40%),
+    linear-gradient(180deg, rgba(25, 28, 33, 0.96), rgba(14, 16, 21, 0.985));
   box-shadow:
-    0 28px 60px rgba(0, 0, 0, 0.34),
-    inset 0 1px 0 rgba(255, 255, 255, 0.03);
+    0 30px 72px rgba(0, 0, 0, 0.36),
+    inset 0 1px 0 rgba(255, 255, 255, 0.035);
 }
 
 .character-board::before,
@@ -869,28 +871,20 @@ hr.soft-rule {
 .character-board::before {
   z-index: 0;
   background:
-    repeating-linear-gradient(
-      180deg,
-      rgba(255, 255, 255, 0.022) 0,
-      rgba(255, 255, 255, 0.022) 1px,
-      transparent 1px,
-      transparent 5px
-    ),
-    repeating-linear-gradient(
-      90deg,
-      rgba(255, 255, 255, 0.014) 0,
-      rgba(255, 255, 255, 0.014) 1px,
-      transparent 1px,
-      transparent 112px
-    );
-  opacity: 0.54;
+    radial-gradient(circle at 18% 24%, rgba(255, 255, 255, 0.055) 0 1px, transparent 1.4px),
+    radial-gradient(circle at 64% 38%, rgba(255, 255, 255, 0.045) 0 1px, transparent 1.4px),
+    radial-gradient(circle at 32% 74%, rgba(255, 255, 255, 0.032) 0 1px, transparent 1.5px),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.02), transparent 42%);
+  background-size: 28px 28px, 34px 34px, 30px 30px, auto;
+  opacity: 0.14;
 }
 
 .character-board::after {
   z-index: 1;
   background:
-    radial-gradient(circle at 0% 100%, rgba(0, 0, 0, 0.36), transparent 28%),
-    radial-gradient(circle at 100% 0%, rgba(0, 0, 0, 0.32), transparent 28%);
+    radial-gradient(circle at 0% 100%, rgba(0, 0, 0, 0.38), transparent 28%),
+    radial-gradient(circle at 100% 0%, rgba(0, 0, 0, 0.34), transparent 28%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.012), transparent 16%, transparent 84%, rgba(0, 0, 0, 0.08));
 }
 
 .board-note {
@@ -899,38 +893,60 @@ hr.soft-rule {
   margin: 0 0 18px;
   font-family: var(--font-ui);
   font-size: 0.78rem;
-  letter-spacing: 0.14em;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: rgba(216, 209, 199, 0.62);
+  color: rgba(221, 214, 203, 0.6);
 }
 
 .thread-map {
   display: none;
   position: absolute;
-  inset: 26px;
-  width: calc(100% - 52px);
-  height: calc(100% - 52px);
+  inset: 34px 20px 72px;
+  width: auto;
+  height: auto;
   z-index: 2;
   pointer-events: none;
 }
 
 .thread-map path {
   fill: none;
-  stroke: rgba(214, 226, 241, 0.42);
-  stroke-width: 1.45;
+  stroke: rgba(219, 228, 239, 0.26);
+  stroke-width: 1.25;
   stroke-linecap: round;
   stroke-linejoin: round;
+  transition: stroke 240ms ease, opacity 240ms ease, stroke-width 240ms ease;
 }
 
 .thread-map path.thread-ghost {
-  stroke: rgba(214, 226, 241, 0.18);
+  stroke: rgba(219, 228, 239, 0.12);
   stroke-dasharray: 4 10;
 }
 
 .thread-points circle {
-  fill: rgba(238, 240, 244, 0.76);
-  stroke: rgba(220, 183, 124, 0.46);
+  fill: rgba(239, 241, 245, 0.62);
+  stroke: rgba(206, 170, 110, 0.36);
   stroke-width: 1.8;
+  opacity: 0.7;
+  transition: opacity 240ms ease;
+}
+
+.character-board.is-focused .thread-map .thread {
+  stroke: rgba(219, 228, 239, 0.08);
+  opacity: 0.28;
+}
+
+.character-board.is-focused .thread-map .thread.is-related {
+  stroke: rgba(236, 241, 246, 0.7);
+  stroke-width: 1.8;
+  opacity: 1;
+}
+
+.character-board.is-focused .thread-map .thread.thread-ghost.is-related {
+  stroke: rgba(236, 241, 246, 0.28);
+}
+
+.character-board.is-focused .thread-points circle {
+  opacity: 0.28;
 }
 
 .character-grid {
@@ -948,24 +964,43 @@ hr.soft-rule {
   --card-bg-bottom: rgba(18, 21, 25, 0.98);
   --portrait-core: rgba(160, 172, 188, 0.36);
   --card-tilt: -1deg;
-  --card-height: 520px;
+  --card-height: 548px;
   --card-z: 2;
   position: relative;
   height: var(--card-height);
   perspective: 1800px;
   transform: rotate(var(--card-tilt));
-  transition: transform 220ms ease, filter 220ms ease;
+  transform-origin: center top;
+  transition: transform 260ms ease, filter 240ms ease, opacity 240ms ease;
   z-index: var(--card-z);
 }
 
 .character-card:hover {
-  transform: translateY(-8px) rotate(var(--card-tilt));
+  transform: translateY(-10px) rotate(var(--card-tilt));
   filter: brightness(1.03);
 }
 
 .character-card.is-flipped,
+.character-card.is-selected,
 .character-card.is-flipped:hover {
-  z-index: 40;
+  z-index: 44;
+}
+
+.character-board.is-focused .character-card {
+  opacity: 0.34;
+  filter: saturate(0.76) brightness(0.8);
+}
+
+.character-board.is-focused .character-card.is-related {
+  opacity: 0.78;
+  filter: saturate(0.92) brightness(0.95);
+}
+
+.character-board.is-focused .character-card.is-selected,
+.character-board.is-focused .character-card.is-selected:hover {
+  opacity: 1;
+  filter: none;
+  transform: translateY(-16px) scale(1.04) rotate(var(--card-tilt));
 }
 
 .character-card-button {
@@ -1013,15 +1048,17 @@ hr.soft-rule {
   inset: 0;
   display: flex;
   flex-direction: column;
-  padding: 18px 18px 16px;
-  border-radius: 18px;
-  border: 1px solid rgba(214, 202, 177, 0.16);
+  padding: 18px 16px 16px;
+  border-radius: 22px;
+  border: 1px solid rgba(214, 202, 177, 0.14);
   background:
-    linear-gradient(160deg, rgba(255, 255, 255, 0.03), transparent 34%),
+    linear-gradient(160deg, rgba(255, 255, 255, 0.04), transparent 34%),
     linear-gradient(180deg, var(--card-bg-top), var(--card-bg-bottom));
   box-shadow:
-    0 22px 42px rgba(0, 0, 0, 0.26),
+    0 22px 44px rgba(0, 0, 0, 0.28),
     inset 0 1px 0 rgba(255, 255, 255, 0.04);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
   backface-visibility: hidden;
   overflow: hidden;
 }
@@ -1032,7 +1069,7 @@ hr.soft-rule {
   inset: 0;
   border-radius: inherit;
   box-shadow: inset 0 0 0 1px var(--card-accent-soft);
-  opacity: 0.82;
+  opacity: 0.9;
   pointer-events: none;
 }
 
@@ -1040,25 +1077,33 @@ hr.soft-rule {
 .character-face-back::after {
   content: "";
   position: absolute;
-  inset: 18px 18px auto;
+  inset: 18px 16px auto;
   height: 1px;
-  background: linear-gradient(90deg, var(--card-accent), transparent 72%);
+  background: linear-gradient(90deg, var(--card-accent), transparent 74%);
   opacity: 0.8;
 }
 
 .character-face-back {
   transform: rotateY(180deg);
   background:
-    linear-gradient(160deg, rgba(255, 255, 255, 0.02), transparent 40%),
-    linear-gradient(180deg, rgba(23, 26, 29, 0.98), rgba(14, 16, 20, 0.99));
+    linear-gradient(160deg, rgba(255, 255, 255, 0.03), transparent 40%),
+    linear-gradient(180deg, rgba(23, 26, 31, 0.985), rgba(13, 15, 19, 0.995));
+}
+
+.character-card.is-selected .character-face {
+  border-color: rgba(236, 230, 220, 0.22);
+  box-shadow:
+    0 26px 58px rgba(0, 0, 0, 0.34),
+    inset 0 1px 0 rgba(255, 255, 255, 0.055),
+    0 0 0 1px rgba(236, 230, 220, 0.05);
 }
 
 .card-pin {
   position: absolute;
-  top: -12px;
+  top: -11px;
   left: 50%;
-  width: 18px;
-  height: 18px;
+  width: 17px;
+  height: 17px;
   border-radius: 50%;
   transform: translateX(-50%);
   background: radial-gradient(circle at 36% 28%, #fff7ea, #c8a773 62%, #765633 100%);
@@ -1069,20 +1114,24 @@ hr.soft-rule {
 
 .character-portrait {
   position: relative;
-  margin-bottom: 14px;
-  aspect-ratio: 4 / 5;
-  border-radius: 12px;
+  width: min(82%, 244px);
+  margin: 2px auto 16px;
+  aspect-ratio: 3 / 4;
+  border-radius: 14px;
   border: 1px solid var(--card-accent-soft);
   overflow: hidden;
   background:
-    radial-gradient(72% 58% at 50% 34%, var(--portrait-core), transparent 78%),
-    linear-gradient(180deg, rgba(16, 18, 22, 0.38), rgba(24, 27, 31, 0.96));
+    radial-gradient(76% 60% at 50% 30%, var(--portrait-core), transparent 74%),
+    linear-gradient(180deg, rgba(14, 17, 22, 0.34), rgba(22, 25, 30, 0.96));
+  box-shadow:
+    inset 0 0 0 1px rgba(255, 255, 255, 0.04),
+    0 16px 26px rgba(0, 0, 0, 0.18);
 }
 
 .character-portrait::before {
   content: "";
   position: absolute;
-  inset: 14% 24% 12%;
+  inset: 12% 22% 10%;
   background:
     radial-gradient(34% 32% at 50% 18%, rgba(252, 252, 255, 0.38), transparent 86%),
     radial-gradient(68% 60% at 50% 84%, rgba(250, 252, 255, 0.16), transparent 76%);
@@ -1111,6 +1160,13 @@ hr.soft-rule {
   opacity: 0.24;
 }
 
+.character-portrait img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
 .portrait-id,
 .portrait-label {
   position: absolute;
@@ -1122,7 +1178,7 @@ hr.soft-rule {
 .portrait-id {
   top: 10px;
   left: 10px;
-  font-size: 0.76rem;
+  font-size: 0.74rem;
   letter-spacing: 0.12em;
 }
 
@@ -1130,7 +1186,8 @@ hr.soft-rule {
   right: 10px;
   bottom: 10px;
   font-size: 0.72rem;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.1em;
+  text-align: right;
 }
 
 .character-head,
@@ -1141,17 +1198,18 @@ hr.soft-rule {
 }
 
 .character-head {
-  align-items: baseline;
+  align-items: flex-end;
   justify-content: space-between;
-  gap: 14px;
+  gap: 10px;
 }
 
 .character-name {
   display: block;
   color: var(--title);
   font-weight: 600;
-  font-size: 1.26rem;
+  font-size: 1.28rem;
   letter-spacing: 0.01em;
+  line-height: 1.08;
 }
 
 .character-tag {
@@ -1215,6 +1273,7 @@ hr.soft-rule {
   padding-left: 16px;
   color: var(--text-soft);
   line-height: 1.65;
+  font-size: 0.94rem;
 }
 
 .character-traits span::before,
@@ -1230,11 +1289,35 @@ hr.soft-rule {
   box-shadow: 0 0 0 4px rgba(255, 255, 255, 0.03);
 }
 
-.character-copy {
-  display: block;
+.character-list-locked span {
+  color: rgba(214, 209, 199, 0.76);
+}
+
+.character-list-locked span::before {
+  background: transparent;
+  border: 1px solid var(--card-accent);
+  box-shadow: none;
+}
+
+.relationship-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
   margin-top: 10px;
-  color: rgba(214, 209, 199, 0.88);
-  line-height: 1.74;
+}
+
+.relationship-tags span {
+  display: inline-flex;
+  align-items: center;
+  min-height: 28px;
+  padding: 0 10px;
+  border-radius: 999px;
+  border: 1px solid var(--card-accent-soft);
+  background: rgba(255, 255, 255, 0.03);
+  color: rgba(230, 224, 215, 0.88);
+  font-family: var(--font-ui);
+  font-size: 0.74rem;
+  letter-spacing: 0.02em;
 }
 
 .flip-hint {
@@ -1273,9 +1356,10 @@ hr.soft-rule {
 .character-back-scroll {
   position: relative;
   flex: 1;
-  padding-top: 14px;
+  padding: 14px 4px 2px 0;
   overflow: auto;
   scrollbar-width: thin;
+  scrollbar-color: rgba(255, 255, 255, 0.16) transparent;
 }
 
 .character-back-scroll::-webkit-scrollbar {
@@ -1365,6 +1449,25 @@ hr.soft-rule {
   opacity: 0.64;
 }
 
+.character-reading-nav {
+  width: fit-content;
+  max-width: calc(100% - 24px);
+  margin: 28px auto 0;
+  padding: 12px 14px;
+  gap: 12px 18px;
+  justify-content: center;
+  border-radius: 18px;
+  background:
+    linear-gradient(180deg, rgba(22, 24, 29, 0.9), rgba(16, 18, 22, 0.92)),
+    linear-gradient(90deg, rgba(170, 156, 132, 0.05), transparent 28%, transparent 72%, rgba(112, 142, 179, 0.05));
+  box-shadow: 0 14px 30px rgba(0, 0, 0, 0.22);
+}
+
+.character-reading-nav .nav-group,
+.character-reading-nav .nav-group-right {
+  justify-content: center;
+}
+
 @media (max-width: 780px) {
   .character-board {
     padding: 16px 12px 18px;
@@ -1377,17 +1480,26 @@ hr.soft-rule {
 
   .character-card {
     --card-tilt: 0deg;
-    --card-height: 500px;
+    --card-height: 522px;
   }
 
   .card-pin {
     top: -10px;
   }
+
+  .character-portrait {
+    width: min(76%, 240px);
+  }
+
+  .character-reading-nav {
+    width: auto;
+    max-width: none;
+  }
 }
 
 @media (min-width: 1024px) {
   .character-shell {
-    width: min(calc(100% - 48px), 80vw, 1520px);
+    width: min(calc(100% - 40px), 84vw, 1540px);
   }
 
   .character-reading-content {
@@ -1395,12 +1507,12 @@ hr.soft-rule {
   }
 
   .character-board {
-    padding: 30px 30px 44px;
-    min-height: 1480px;
+    padding: 30px 32px 96px;
+    min-height: 1600px;
   }
 
   .board-note {
-    margin-bottom: 6px;
+    margin-bottom: 10px;
   }
 
   .thread-map {
@@ -1409,51 +1521,53 @@ hr.soft-rule {
 
   .character-grid {
     display: block;
-    min-height: 1380px;
+    min-height: 1475px;
   }
 
   .character-card {
     position: absolute;
-    width: 28%;
-    max-width: 390px;
-    min-width: 240px;
+    width: 22%;
+    max-width: 336px;
+    min-width: 232px;
   }
 
   .card-guyu {
     top: 2%;
-    left: 31%;
+    left: 36%;
+    width: 23%;
   }
 
   .card-zhou {
     top: 5%;
-    left: 2%;
+    left: 5%;
   }
 
   .card-lin {
     top: 6%;
-    left: 71%;
+    left: 73%;
   }
 
   .card-ma {
-    top: 42%;
-    left: 1%;
+    top: 41%;
+    left: 4%;
   }
 
   .card-shen {
     top: 47%;
-    left: 30%;
-    width: 26%;
+    left: 35%;
+    width: 22%;
   }
 
   .card-tang {
-    top: 41%;
-    left: 70%;
+    top: 40%;
+    left: 73%;
   }
 
   .card-archive {
-    top: 77%;
-    left: 41%;
-    width: 24%;
+    top: 64%;
+    left: 46%;
+    width: 20%;
+    --card-height: 520px;
   }
 }
 
@@ -1465,7 +1579,17 @@ hr.soft-rule {
     filter: none;
   }
 
+  .character-board.is-focused .character-card.is-selected,
+  .character-board.is-focused .character-card.is-selected:hover {
+    transform: rotate(var(--card-tilt));
+  }
+
   .card-inner {
+    transition: none;
+  }
+
+  .thread-map path,
+  .thread-points circle {
     transition: none;
   }
 }
